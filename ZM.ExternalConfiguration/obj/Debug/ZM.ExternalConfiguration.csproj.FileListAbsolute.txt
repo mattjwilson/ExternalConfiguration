@@ -1,0 +1,6 @@
+C:\Users\Matt\Source\Repos\ExternalConfiguration\ZM.ExternalConfiguration\bin\Debug\ZM.ExternalConfiguration.dll
+C:\Users\Matt\Source\Repos\ExternalConfiguration\ZM.ExternalConfiguration\bin\Debug\ZM.ExternalConfiguration.pdb
+C:\Users\Matt\Source\Repos\ExternalConfiguration\ZM.ExternalConfiguration\bin\Debug\ZM.ExternalConfiguration.dll.CodeAnalysisLog.xml
+C:\Users\Matt\Source\Repos\ExternalConfiguration\ZM.ExternalConfiguration\bin\Debug\ZM.ExternalConfiguration.dll.lastcodeanalysissucceeded
+C:\Users\Matt\Source\Repos\ExternalConfiguration\ZM.ExternalConfiguration\obj\Debug\ZM.ExternalConfiguration.dll
+C:\Users\Matt\Source\Repos\ExternalConfiguration\ZM.ExternalConfiguration\obj\Debug\ZM.ExternalConfiguration.pdb
