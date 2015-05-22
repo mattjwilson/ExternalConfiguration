@@ -2,11 +2,8 @@
 {
     using Microsoft.WindowsAzure.Storage;
     using System;
-    using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Class responsible for loading a configuration file located in an Azure Blob Storage location.
@@ -59,7 +56,7 @@
             }
             catch (Exception ex)
             {
-                throw new FileAccessException("An error was encountered while retrieving the file from: " + this.settings.FileLocation, ex);
+                throw new FileAccessException(string.Format(CultureInfo.InvariantCulture, "An error was encountered while retrieving the file from: {0} {1}", this.settings.FileLocation, ex));
             }
         }
 
