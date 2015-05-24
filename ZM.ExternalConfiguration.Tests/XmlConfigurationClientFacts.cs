@@ -17,8 +17,8 @@
                 new XElement("MattTest",
                     new XElement("Setting", new XAttribute("key", "Matt")) { Value = "Wilson" },
                     new XElement("Setting", new XAttribute("key", "Collection"),
-                        new XElement("Child", new XAttribute("key", "MattChild")){ Value = "Dominic"},
-                        new XElement("Child", new XAttribute("key", "MattChild")){ Value = "Calvin"}))));
+                        new XElement("Value", new XAttribute("key", "MattChild")){ Value = "Dominic"},
+                        new XElement("Value", new XAttribute("key", "MattChild")){ Value = "Calvin"}))));
 
             var stream = new MemoryStream(Encoding.Default.GetBytes(doc.ToString()));
             return stream;

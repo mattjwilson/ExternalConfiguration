@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configurations>
+	<MyApplication>
+		<Setting key=""></Setting>
+		<Setting key="">
+			<Value></Value>
+			<Value></Value>
+			<Value></Value>
+		</Setting>
+	</MyApplication>
+	<MyApplicationTwo>
+		<Setting key=""></Setting>
+	</MyApplicationTwo>
+</Configurations>
