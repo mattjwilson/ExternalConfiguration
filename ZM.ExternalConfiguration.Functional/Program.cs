@@ -12,16 +12,8 @@
     {
         static void Main(string[] args)
         {
-            // NOTE: this test requires a valid configuration to be put int he directory specified in the location below.
-            var doc = new XDocument(new XElement("Configurations",
-                new XElement("MattTest",
-                    new XElement("Setting", new XAttribute("key", "Matt")))));
-
-            var docString = doc.ToString();
-            var test2 = docString;
-
-            //TestSharedDirectory();
-            TestAzure();
+            TestSharedDirectory();
+            //TestAzure(); // removing so that I don't put my azure connection string up.
 
             Console.ReadLine();
         }
@@ -40,8 +32,12 @@
 
             var test = client.ContainsKey("TestOne");
             Console.WriteLine("Contains Key = {0}", test);
-            var getTest = client.GetString("matt");
+            var getTest = client.GetString("TestOne");
             Console.WriteLine("Value = {0}", getTest);
+
+            var testCollection = client.GetStrings("TestTwo");
+            foreach (var item in testCollection)
+                Console.WriteLine(item);
         }
 
         private static void TestAzure()
@@ -51,6 +47,7 @@
                 CacheTimeout = TimeSpan.FromMilliseconds(10000d),
                 ConfigurationSection = "mattTest",
                 ContainerName = "configuration",
+                FileLocation = "",
                 FileName = "TestConfig.xml"
             };
 
