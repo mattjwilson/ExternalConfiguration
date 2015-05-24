@@ -1,6 +1,8 @@
 ﻿namespace ZM.ExternalConfiguration
 {
     using System;
+    using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Threading;
     using System.Xml.Linq;
@@ -61,6 +63,7 @@
                     {
                         enteredWrite = true;
                         stream.Position = 0;
+                        this.cachedConfiguration = null;
                         this.cachedConfiguration = XDocument.Load(stream);
                     }
                 }
@@ -140,7 +143,7 @@
                         .Select(e => e.Value).FirstOrDefault();
 
                     if (requestedValue == null)
-                        throw new KeyNotFoundException("Requested key: " + key + " was not found in the current configuration file.");
+                        throw new KeyNotFoundException(string.Format(CultureInfo.InvariantCulture, "Requested key: {0} was not found in the current configuration file.", key));
 
                     return requestedValue;
                 }
@@ -151,6 +154,38 @@
             }
 
             throw new CacheBusyException("Unable to acquire a read lock for the cache object.");
+        }
+
+        /// <summary>
+        /// Gets a value from the configuration returning a collection of elements nested under a key.
+        /// </summary>
+        /// <param name="key">A <see cref="string"/> representing the key of the parent element to locate.</param>
+        /// <returns>An <see cref="IEnumberable{T}"/> based collection of <see cref="string"/> values.</returns>
+        public IEnumerable<string> GetStrings(string key)
+        {
+            var collection = new List<string>();
+
+            var requestedValue = this.cachedConfiguration.Element("Configurations")
+                        .Element(this.settings.ConfigurationSection)
+                        .Elements()
+                            .Where(r => r.Attributes().First(a => a.Name == "key").Value == key);
+            if (requestedValue == null)
+                return collection;
+
+            if(requestedValue.Elements().Any())
+            {
+                collection.AddRange(requestedValue.Elements()
+                    .Select(e => e.Value));
+            }
+            else if(requestedValue.Any())
+            {
+                collection.Add(requestedValue.FirstOrDefault().Value);
+            }
+
+            if (requestedValue == null)
+                throw new KeyNotFoundException(string.Format(CultureInfo.InvariantCulture, "Requested key: {0} was not found in the current configuration file.", key));
+
+            return collection;
         }
 
         /// <summary>

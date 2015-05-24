@@ -1,6 +1,7 @@
 ﻿namespace ZM.ExternalConfiguration
 {
     using System;
+using System.Collections.Generic;
 
     /// <summary>
     /// Defines the structure required of classes providing read only access to a common / remote configuration.
@@ -24,6 +25,13 @@
         /// <param name="key">A <see cref="string"/> value representing the key used to locate the requested value.</param>
         /// <returns>A <see cref="string"/> value.</returns>
         string GetString(string key);
+
+        /// <summary>
+        /// Gets a value from the configuration returning a collection of elements nested under a key.
+        /// </summary>
+        /// <param name="key">A <see cref="string"/> representing the key of the parent element to locate.</param>
+        /// <returns>An <see cref="IEnumberable{T}"/> based collection of <see cref="string"/> values.</returns>
+        IEnumerable<string> GetStrings(string key);
 
         /// <summary>
         /// Searches the configuration source for a specified key.

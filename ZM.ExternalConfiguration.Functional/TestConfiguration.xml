@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configurations>
+  <MyApplication>
+    <Setting key="TestOne">AwesomeConfiguration</Setting>
+    <Setting key="TestTwo">
+      <Value>One</Value>
+      <Value>Two</Value>
+      <Value>Three</Value>
+    </Setting>
+  </MyApplication>
+  <MyApplicationTwo>
+    <Setting key="AppTwoTestOne">One</Setting>
+  </MyApplicationTwo>
+</Configurations>

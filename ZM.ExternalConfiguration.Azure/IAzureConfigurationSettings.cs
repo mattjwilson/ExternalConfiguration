@@ -1,11 +1,5 @@
 ﻿namespace ZM.ExternalConfiguration.Azure
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Defines the structure required of objects containing the azure settings for the configuration cache.
     /// </summary>
