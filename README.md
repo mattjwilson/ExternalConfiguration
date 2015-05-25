@@ -1,7 +1,5 @@
 # ExternalConfiguration
-In progress, will be updated soon
-
-Tools and classes for seperating and storing, and caching configuration external to projects in either a local file (or network drive), or Azure Blob Storage.  This can simplify deployments for scale environments that use a single configuration over multiple machines, or environmental transfers (shifting from dev, to Preview, to Prod).  Currently I've only built out the xml client / structure, and only supports strings at this point in time.  I'm looking at filling out the generic / typed read, but it's still under development.
+Library for seperating, storing, and caching configuration external to projects in either a local file (or network drive), or Azure Blob Storage.  This can simplify deployments for scale environments that use a single configuration over multiple machines, or environmental transfers (shifting from dev, to Preview, to Prod).  Currently I've only built out the xml client / structure, and only supports strings at this point in time.  I'm looking at filling out the generic / typed read, but it's still under development.
 
 The library expects a standard format for configuration files.  Check out the ExampleConfiguration.xml in the repo for the format.
 
